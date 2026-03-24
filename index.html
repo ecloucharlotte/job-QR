@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>[NOM ENTREPRISE] - Notre Vitrine</title>
+    <meta name="description" content="Job Booter - Accélérateur de carrière des jeunes diplômés. Acquérez des compétences opérationnelles et valorisez votre profil auprès des entreprises.">
+    <title>Job Booter | Accélérateur de carrière</title>
     <style>
         * {
             margin: 0;
@@ -12,259 +13,591 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f5f7fb;
+            color: #1a2c3e;
+            line-height: 1.5;
         }
 
-        /* Header */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+        /* Couleurs principales */
+        :root {
+            --bleu-nuit: rgb(18, 51, 119);
+            --bleu-nuit-clair: rgba(18, 51, 119, 0.1);
+            --orange: #f97316;
+            --orange-fonce: #ea580c;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--bleu-nuit);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-fonce));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 12px rgba(249,115,22,0.25);
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: white;
+        }
+
+        .logo-text span {
+            color: var(--orange);
+            font-weight: 800;
+        }
+
+        .nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #e9f0f5;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+        }
+
+        .nav a:hover {
+            color: var(--orange);
+            background: rgba(249,115,22,0.1);
+        }
+
+        /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(110deg, var(--bleu-nuit) 0%, rgb(28, 66, 138) 100%);
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 28px;
+            letter-spacing: 0.3px;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+            position: relative;
+            display: inline-block;
         }
 
         .hero p {
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
-            opacity: 0.9;
+            opacity: 0.85;
+            font-weight: 400;
         }
 
-        /* Container principal */
+        /* Container */
         .container {
-            max-width: 1200px;
-            margin: -30px auto 0;
-            padding: 0 20px 40px;
-            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 24px;
         }
 
-        /* Sections communes */
-        .card {
+        /* Sections */
+        .section {
             background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 28px;
+            padding: 48px;
+            margin-bottom: 48px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            scroll-margin-top: 100px;
         }
 
-        .card h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            border-left: 4px solid #667eea;
-            padding-left: 15px;
+        .section:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
         }
 
-        /* Grille projets */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bleu-nuit-clair);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        .section h2 {
+            color: var(--bleu-nuit);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin: 0;
+        }
+
+        .section-subtitle {
+            color: #5a6e7c;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        /* Grille projets - 4 projets */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 16px;
         }
 
-        .project-item {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #e9ecef;
+        .project-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px;
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            border: 1px solid #eef2f6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
-        .project-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--orange);
+            box-shadow: 0 20px 30px -12px rgba(249,115,22,0.15);
         }
 
-        .project-item h3 {
-            color: #764ba2;
-            margin-bottom: 10px;
+        .project-icon {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .project-card h3 {
+            color: var(--bleu-nuit);
             font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
-        .project-item p {
-            color: #666;
-            margin-bottom: 15px;
+        .project-card p {
+            color: #4a5c6b;
+            margin-bottom: 24px;
+            line-height: 1.5;
         }
 
         .project-link {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--orange);
+            padding: 8px 0;
+            border-radius: 0;
             text-decoration: none;
+            font-weight: 600;
             font-size: 0.9rem;
-            transition: background 0.3s;
+            transition: gap 0.2s;
+            border-bottom: 2px solid transparent;
         }
 
         .project-link:hover {
-            background: #764ba2;
+            gap: 12px;
+            border-bottom-color: var(--orange);
         }
 
-        /* Liste profils */
+        /* Profils */
         .profiles-list {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
-        .profile-item {
+        .profile-card {
             display: flex;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #e9ecef;
+            padding: 24px;
+            background: #fafcff;
+            border-radius: 24px;
+            transition: all 0.2s;
+            border: 1px solid #eef2f8;
         }
 
-        .profile-item:last-child {
-            border-bottom: none;
+        .profile-card:hover {
+            background: white;
+            border-color: var(--orange);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         }
 
-        .profile-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .profile-avatar {
+            width: 68px;
+            height: 68px;
+            background: linear-gradient(145deg, var(--bleu-nuit), rgb(28, 66, 138));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            margin-right: 24px;
             color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            box-shadow: 0 6px 14px rgba(18,51,119,0.2);
         }
 
         .profile-info {
             flex: 1;
         }
 
-        .profile-info strong {
-            font-size: 1.1rem;
-            color: #333;
+        .profile-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--bleu-nuit);
+            margin-bottom: 4px;
         }
 
-        .profile-info p {
-            color: #666;
+        .profile-info .role {
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .profile-info .bio {
+            color: #4a6272;
             font-size: 0.9rem;
+            margin-bottom: 12px;
         }
 
         .profile-link {
-            color: #667eea;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--orange);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.85rem;
+            transition: gap 0.2s;
         }
 
         .profile-link:hover {
+            gap: 10px;
             text-decoration: underline;
         }
 
         /* Footer */
         .footer {
+            background: var(--bleu-nuit);
+            color: #b9cfe5;
             text-align: center;
-            padding: 30px;
-            background: #2d3748;
-            color: white;
-            margin-top: 40px;
+            padding: 48px 24px;
+            margin-top: 20px;
         }
 
-        /* Responsive */
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+            text-align: left;
+        }
+
+        .footer-brand p {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #8aaec0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 48px;
+        }
+
+        .footer-links a {
+            color: #cbdbe0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .footer-copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+        }
+
         @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .nav a {
+                margin: 0 0.5rem;
+                padding: 0.5rem 1rem;
+            }
+            .hero {
+                padding: 60px 20px;
+            }
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
-            
-            .hero p {
-                font-size: 1rem;
+            .section {
+                padding: 32px 24px;
             }
-            
-            .card {
-                padding: 20px;
+            .section h2 {
+                font-size: 1.6rem;
             }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-avatar {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-links {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>🏢 [NOM DE VOTRE ENTREPRISE]</h1>
-        <p>Innovation, Excellence & Passion</p>
-    </div>
+
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">JB</div>
+                <div class="logo-text">Job<span>Booter</span></div>
+            </a>
+            <nav class="nav">
+                <a href="#about">À propos</a>
+                <a href="#projects">Projets</a>
+                <a href="#profiles">Profils</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⚡ La nouvelle génération de talents</div>
+            <h1>L'accélérateur de carrière <span>des jeunes diplômés</span></h1>
+            <p>Job Booter transforme votre potentiel en expertise recherchée par les meilleures entreprises.</p>
+        </div>
+    </section>
 
     <div class="container">
-        <!-- Section Présentation -->
-        <div class="card">
-            <h2>📌 À propos de nous</h2>
-            <p>[Mettez ici la description de votre entreprise. Parlez de votre mission, vos valeurs, ce qui vous rend unique. Adaptez ce texte à votre réalité.]</p>
-            <p>Nous sommes une équipe passionnée dédiée à créer des solutions innovantes pour nos clients. Depuis notre création, nous avons accompagné de nombreuses entreprises dans leur transformation numérique.</p>
-        </div>
-
-        <!-- Section Projets -->
-        <div class="card">
-            <h2>🚀 Nos projets réalisés</h2>
-            <div class="projects-grid">
-                <div class="project-item">
-                    <h3>Projet 1</h3>
-                    <p>Description du premier projet : objectifs, technologies utilisées, résultats obtenus.</p>
-                    <a href="#" class="project-link" target="_blank">Voir le projet →</a>
-                </div>
-                <div class="project-item">
-                    <h3>Projet 2</h3>
-                    <p>Description du deuxième projet : objectifs, technologies utilisées, résultats obtenus.</p>
-                    <a href="#" class="project-link" target="_blank">Voir le projet →</a>
-                </div>
-                <div class="project-item">
-                    <h3>Projet 3</h3>
-                    <p>Description du troisième projet : objectifs, technologies utilisées, résultats obtenus.</p>
-                    <a href="#" class="project-link" target="_blank">Voir le projet →</a>
+        <section id="about" class="section">
+            <div class="section-header">
+                <div class="section-icon"></div>
+                <div>
+                    <h2>À propos de nous</h2>
+                    <div class="section-subtitle">Notre raison d'être</div>
                 </div>
             </div>
-        </div>
+            <p style="font-size: 1.05rem; margin-bottom: 20px;"><strong>Job Booter</strong> est une plateforme dédiée à l'insertion professionnelle des jeunes diplômés. Notre mission est de combler le fossé entre la formation académique et les attentes du marché du travail.</p>
+            <p style="margin-bottom: 20px;">Nous permettons à chaque jeune talent de :</p>
+            <ul style="margin-left: 24px; display: flex; flex-direction: column; gap: 10px;">
+                <li>Acquérir des compétences opérationnelles dans son domaine</li>
+                <li>Développer son employabilité à travers des projets concrets</li>
+                <li>Se faire connaître des entreprises à la recherche de profils qualifiés</li>
+            </ul>
+            <p style="margin-top: 24px; font-weight: 500; color: var(--bleu-nuit);"><strong>Notre objectif :</strong> faire de chaque jeune diplômé un professionnel prêt à relever les défis de demain.</p>
+        </section>
 
-        <!-- Section Profils / Équipe -->
-        <div class="card">
-            <h2>👥 Notre équipe</h2>
+        <section id="projects" class="section">
+            <div class="section-header">
+                <div class="section-icon"></div>
+                <div>
+                    <h2>Projets réalisés</h2>
+                    <div class="section-subtitle">Des expériences qui font la différence</div>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <img src="image/digital.jpeg" width="300" height="200" alt="">
+                    </div>
+                    <h3>Digital Tailor</h3>
+                    <p>Programme intensif de 12 semaines avec mise en situation réelle. 94% des participants ont décroché un CDI dans les 3 mois.</p>
+                    <a href="#" class="project-link" target="_blank">Découvrir le projet →</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                          <img src="image/project.jpeg" width="300" height="200" alt="">
+                    </div>
+                    <h3>Project Pro</h3>
+                    <p>Formation complète aux métiers de la data. Maîtrise de Python, SQL, Power BI et cas concrets issus d'entreprises partenaires.</p>
+                    <a href="#" class="project-link" target="_blank">Découvrir le projet →</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">  
+                        <img src="image/gateway.jpeg" width="300" height="200" alt=""></div>
+                    <h3>Benin GateWay</h3>
+                    <p>Coaching personnalisé par des experts du secteur. Accompagnement individuel pour affiner sa stratégie de recherche d'emploi.</p>
+                    <a href="#" class="project-link" target="_blank">Découvrir le projet →</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                          <img src="image/stater.jpeg" width="300" height="200" alt="">
+                    </div>
+                    <h3>Starter Kit</h3>
+                    <p>Mise en relation directe avec 80+ entreprises partenaires. Des sessions de recrutement exclusives réservées à nos talents.</p>
+                    <a href="#" class="project-link" target="_blank">Découvrir le projet →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="profiles" class="section">
+            <div class="section-header">
+                <div class="section-icon">👥</div>
+                <div>
+                    <h2>Profils qualifiés</h2>
+                    <div class="section-subtitle">Des experts engagés à vos côtés</div>
+                </div>
+            </div>
             <ul class="profiles-list">
-                <li class="profile-item">
-                    <div class="profile-icon">JD</div>
+                <li class="profile-card">
+                    <div class="profile-avatar">CD</div>
                     <div class="profile-info">
-                        <strong>Jean Dupont</strong>
-                        <p>Fondateur & CEO - 15 ans d'expérience en développement web</p>
+                        <h3>Claire Delacroix</h3>
+                        <div class="role">Fondatrice & CEO</div>
+                        <div class="bio">Ancienne DRH en tech, elle a accompagné plus de 500 jeunes talents vers l'emploi. Visionnaire et passionnée par l'insertion professionnelle.</div>
                         <a href="#" class="profile-link" target="_blank">🔗 Voir le profil LinkedIn</a>
                     </div>
                 </li>
-                <li class="profile-item">
-                    <div class="profile-icon">ML</div>
+                <li class="profile-card">
+                    <div class="profile-avatar">TR</div>
                     <div class="profile-info">
-                        <strong>Marie Lambert</strong>
-                        <p>Directrice Technique - Expert en architecture logicielle</p>
+                        <h3>Thomas Rivière</h3>
+                        <div class="role">Directeur pédagogique</div>
+                        <div class="bio">Expert en développement de compétences et architecte de nos programmes de formation certifiants.</div>
                         <a href="#" class="profile-link" target="_blank">🔗 Voir le profil LinkedIn</a>
                     </div>
                 </li>
-                <li class="profile-item">
-                    <div class="profile-icon">SM</div>
+                <li class="profile-card">
+                    <div class="profile-avatar">LN</div>
                     <div class="profile-info">
-                        <strong>Sophie Martin</strong>
-                        <p>Lead Developer - Spécialiste React & Python</p>
+                        <h3>Laura Ndiaye</h3>
+                        <div class="role">Responsable relations entreprises</div>
+                        <div class="bio">Ancienne consultante en recrutement, elle tisse des liens solides avec nos entreprises partenaires pour valoriser nos talents.</div>
                         <a href="#" class="profile-link" target="_blank">🔗 Voir le profil LinkedIn</a>
                     </div>
                 </li>
             </ul>
-        </div>
+        </section>
     </div>
 
-    <div class="footer">
-        <p>© 2025 [Nom Entreprise] - Tous droits réservés</p>
-        <p>📧 contact@votreentreprise.com | 📞 +33 1 23 45 67 89</p>
-    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-text" style="font-size: 1.4rem;">Job<span>Booter</span></div>
+                <p>L'accélérateur de carrière<br>des jeunes diplômés</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">À propos</a>
+                <a href="#projects">Projets</a>
+                <a href="#profiles">Profils</a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2025 Job Booter — Tous droits réservés</p>
+            <p style="margin-top: 8px;">📧 hello@jobbooter.com | 📞 +33 1 84 80 90 12</p>
+        </div>
+    </footer>
 </body>
 </html>
