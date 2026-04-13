@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Job Booter | Bilan 1ère Cohorte</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter','Segoe UI',Arial,sans-serif}
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+body{background:#ffffff;color:#1e293b}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    box-shadow: #f8fafc;
+    background:rgb(245, 245, 245);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+
+nav a {
+    margin: 0 18px;
+    text-decoration: none;
+    color: rgb(18,51,119);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f97316;
+}
+
+.contact-btn {
+    background: #f97316;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 40px;
+    transition: all 0.3s;
+}
+
+.contact-btn:hover {
+    background: #ea580c;
+    transform: translateY(-2px);
+}
+
+/* HERO */
+.hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 80px 60px;background:linear-gradient(135deg,#ffffff 0%,#fef9f0 100%)}
+.left h1{font-size:2.8rem;font-weight:800;margin-bottom:20px;color:rgb(18,51,119)}
+.left h1 span{color:#f97316}
+.left p{color:#475569;font-size:1.1rem;max-width:600px;margin:0 auto}
+
+/* PROFILS - 4 par ligne */
+.profiles-section{padding:40px 80px 80px}
+.profiles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+
+.profile-card{
+background:linear-gradient(145deg,#ffffff,#fafcff);
+border-radius:24px;
+padding:28px 20px;
+text-align:center;
+transition:0.3s ease;
+border:1px solid #eef2f8;
+position:relative;
+}
+
+.profile-card:hover{
+transform:translateY(-6px);
+border-color:#f97316;
+box-shadow:0 25px 35px -15px rgba(0,0,0,0.12);
+}
+
+.profile-photo-container{
+width:100px;height:100px;margin:0 auto 16px;border-radius:50%;overflow:hidden;
+background:linear-gradient(135deg,rgb(18,51,119),rgb(28,66,138));
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+.profile-photo{width:100%;height:100%;object-fit:cover}
+.profile-photo-placeholder{display:flex;align-items:center;justify-content:center;height:100%;color:white;font-weight:600;font-size:1.2rem;background:linear-gradient(135deg,rgb(18,51,119),rgb(28,66,138))}
+
+.profile-card h3{font-size:1rem;font-weight:800;color:rgb(18,51,119);margin-bottom:6px}
+.profile-domain{font-size:0.75rem;color:#f97316;font-weight:600;margin-bottom:14px;letter-spacing:0.3px}
+
+/* VALEURS - 3 soft skills */
+.profile-values{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:12px 0 12px}
+.profile-values span{
+background:rgba(249,115,22,0.08);
+border:1px solid rgba(249,115,22,0.25);
+color:#f97316;
+padding:5px 12px;
+border-radius:30px;
+font-size:0.7rem;
+font-weight:500;
+}
+footer {
+    background: rgb(18, 51, 119);
+    color: #b9cfe5;
+    padding: 48px 5% 24px;
+    margin-top: 40px;
+}
+
+/* DESCRIPTION - Toujours visible */
+.profile-desc{
+margin:12px 0 10px;
+padding:10px 8px;
+background:#f8fafc;
+
+border-left:3px solid #f97316;
+text-align:left;
+}
+
+.profile-desc .desc{
+font-size:0.7rem;
+color:#475569;
+line-height:1.4;
+margin-bottom:6px;
+}
+
+.profile-desc .result{
+font-size:0.65rem;
+color:#f97316;
+font-weight:600;
+display:inline-block;
+background:rgba(249,115,22,0.1);
+padding:3px 10px;
+border-radius:20px;
+}
+
+.profile-link{
+display:inline-block;
+font-size:1rem;
+color:rgb(18,51,119);
+text-decoration:none;
+font-weight: bold;
+margin-top:6px;
+padding:5px 12px;
+border-radius:30px;
+transition:0.2s;
+}
+
+
+.profile-link:hover{color:#f97316;background:rgba(249,115,22,0.05)}
+
+/* Responsive */
+@media (max-width:1100px){.profiles-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:800px){.profiles-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:550px){.profiles-grid{grid-template-columns:1fr}}
+@media (max-width:768px){.hero{padding:60px 24px}.profiles-section{padding:40px 24px}}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    header, .hero {
+        padding: 24px 40px;
+    }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 80px;
+    }
+    .left {
+        max-width: 100%;
+        text-align: center;
+    }
+    .stats {
+        justify-content: center;
+    }
+    .stat-item {
+        text-align: center;
+    }
+    .right {
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+/* ── FOOTER ── */
+footer {
+    background: rgb(18, 51, 119);
+    color: #b9cfe5;
+    padding: 48px 5% 24px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 180px;
+}
+
+.footer-brand {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: #f97316;
+    margin-bottom: 16px;
+}
+
+.footer-brand span {
+    color: white;
+}
+
+.footer-description {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.5;
+    max-width: 300px;
+}
+
+.footer-col h6 {
+    color: #f97316;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+
+.footer-links a {
+    color: #cbdbe0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #f97316;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    opacity: 0.85;
+    margin-bottom: 12px;
+}
+
+.contact-item .icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(249,115,22,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.footer-bottom hr {
+    border-color: rgba(255,255,255,0.1);
+    margin: 20px 0 16px;
+}
+
+.copy {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    text-align: center;
+    margin: 0;
+}
+
+    .circle {
+        width: 380px;
+        height: 380px;
+        top: -20px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .carousel-container {
+        width: 320px;
+        height: 320px;
+        margin-top: 0;
+    }
+    .card.top, .card.bottom, .card.right-card {
+        display: none;
+    }
+    .profiles-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 16px;
+    }
+    nav a {
+        margin: 0 12px;
+    }
+    .hero {
+        padding: 40px 24px 60px 24px;
+    }
+    .left h1 {
+        font-size: 2.2rem;
+    }
+    .left p {
+        font-size: 1rem;
+    }
+    .stats {
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+    }
+    .circle {
+        width: 300px;
+        height: 300px;
+    }
+    .carousel-container {
+        width: 260px;
+        height: 260px;
+    }
+    .profiles-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .section {
+        padding: 32px 24px;
+    }
+    .section h2 {
+        font-size: 1.6rem;
+    }
+  
+}
+
+@media (max-width: 600px) {
+    .profiles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .profiles-grid {
+        grid-template-columns: 1fr;
+    }
+    .circle {
+        width: 260px;
+        height: 260px;
+    }
+    .carousel-container {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="image/ChatGPT Image Mar 26, 2026, 11_32_45 AM.png"  width="110" height="110">
+    </div>
+    <nav>
+         <a href="index.html" class="contact-btn">Accueil</a>
+        <a href="jobbooster_report_2026.html">Rapport</a>
+        <a href="profil.html">Profils</a>
+      
+    </nav>
+</header>
+
+<section class="hero">
+<div class="left">
+<h1>Révéler le potentiel <span>des talents</span></h1>
+<p>24 profils d'exception, prêts à rejoindre votre entreprise avec des compétences techniques et humaines remarquables.</p>
+</div>
+</section>
+
+<section id="profiles" class="profiles-section">
+<div class="profiles-grid">
+
+<!-- Profil 1 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+    <img src="image/coudous.jpeg" alt="" width="120" height="120">
+</div></div>
+<h3>DOMINGO Koudous </h3>
+<div class="profile-domain">Gestionnaire de projets </div>
+<div class="profile-desc">
+<div class="desc">Je suis polyvalent et possède des compétences en gestion et en management , maîtrise la gestion et la planification .</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+<!-- Profil 2 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+ <img src="image/cles.jpg.jpeg" alt=""  width="99" height="99">
+</div></div>
+<h3> KPADONOU  Périclès  </h3>
+<div class="profile-domain">Gestionnaire Projets/Data Analyst </div>
+<div class="profile-desc">
+<div class="desc"> Je  conçois et pilote des projets professionnels de bout en bout, je développe des stratégies marketing orientées résultats .</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 3 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+    <img src="image/Kanze.jpeg" alt=""  width="99" height="99">
+
+</div></div>
+<h3>KANZE Monnagni Marius</h3>
+<div class="profile-domain">Développeur full stack & Mobile </div>
+<div class="profile-desc">
+<div class="desc"> Concepteur de Solutions Digitales spécialisé dans la conception et la réalisation d’applications modernes, performantes et orientées métier.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 4 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+    <img src="image/charlotte.jpeg" alt=""  width="110" height="110">
+
+</div></div>
+<h3>ECLOU Charlotte</h3>
+<div class="profile-domain">Développeuse mobile & web</div>
+<div class="profile-desc">
+<div class="desc"> Je conçois des interfaces intuitives, instructives et fluides, pensées pour offrir une expérience utilisateur optimale et adaptées .</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+
+<!-- Profil 5 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+    <img src="image/frank.jpeg" alt=""  width="110" height="110">
+
+</div></div>
+<h3>KUADJO Persid Franck </h3>
+<div class="profile-domain"> Gestionnaire de projet </div>
+<div class="profile-desc">
+<div class="desc"> Je suis polyvalent, avec des compétences en entrepreneuriat, gestion de projets, marketing et design graphique.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 10 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+    <img src="image/lafia.png" alt=""  width="100" height="100">
+
+</div></div>
+<h3>LAFIA Idayatou </h3>
+<div class="profile-domain">Gestionnaire de projet</div>
+<div class="profile-desc">
+<div class="desc">Je planifie et coordonne les activités pour atteindre les objectifs fixés.
+En parallèle, je développe la vente de produits cosmétiques et fidélise la clientèle..</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 11 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+    <img src="image/hama.jpeg" alt=""  width="100" height="100">
+
+</div></div>
+<h3>HAMA GARBA LOBO Tahirou</h3>
+<div class="profile-domain"> Ingénieur en Génie Civil </div>
+<div class="profile-desc">
+<div class="desc">Ingénieur des infrastructures, spécialisé en conception d’ouvrages.
+J’apporte des solutions durables en gestion de projets urbains.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 12 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+  <img src="image/abi.jpeg" alt=""  width="100" height="100">
+
+</div></div>
+<h3>IDJIWA Abiguelle</h3>
+<div class="profile-domain">Maintenancière</div>
+<div class="profile-desc">
+<div class="desc">je suis technicienne spécialisée en installation et maintenance des systèmes informatiques, notamment des ordinateurs, ainsi qu'en réparation des téléphones portables</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 13 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">
+    
+</div></div>
+<h3>Amélie Leroy</h3>
+<div class="profile-domain">Responsable RH</div>
+<div class="profile-desc">
+<div class="desc">Gère le cycle de vie des talents : recrutement, onboarding, développement.</div>
+
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 14 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">VP</div></div>
+<h3>Victor Petit</h3>
+<div class="profile-domain">Full Stack</div>
+<div class="profile-desc">
+<div class="desc"> Développe des applications web avec Vue.js, Laravel et PostgreSQL.</div>
+
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 15 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">LR</div></div>
+<h3>Louise Renaud</h3>
+<div class="profile-domain">UI Designer</div>
+<div class="profile-desc">
+<div class="desc">Conçoit des interfaces élégantes et des design systems cohérents.</div>
+
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 16 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">TB</div></div>
+<h3>Théo Blanc</h3>
+<div class="profile-domain">Architecte Cloud</div>
+<div class="profile-desc">
+<div class="desc">☁️ Conçoit des infrastructures cloud scalables sur Azure avec Terraform.</div>
+
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 17 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">MC</div></div>
+<h3>Manon Caron</h3>
+<div class="profile-domain">Cybersécurité</div>
+<div class="profile-desc">
+<div class="desc">Protège les systèmes contre les menaces, réalise des audits et tests d'intrusion.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 18 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">HG</div></div>
+<h3>Hugo Girard</h3>
+<div class="profile-domain">Business Developer</div>
+<div class="profile-desc">
+<div class="desc"> Identifie de nouveaux marchés et négocie des partenariats stratégiques.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 19 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">LC</div></div>
+<h3>Léa Caron</h3>
+<div class="profile-domain">Data Analyst</div>
+<div class="profile-desc">
+<div class="desc">Crée des tableaux de bord impactants avec Tableau et identifie des tendances.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 20 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">MB</div></div>
+<h3>Mathis Blanc</h3>
+<div class="profile-domain">Backend Developer</div>
+<div class="profile-desc">
+<div class="desc">Développe des APIs robustes avec Python/Django, assure la scalabilité.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 21 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">CM</div></div>
+<h3>Camille Mercier</h3>
+<div class="profile-domain">Graphiste</div>
+<div class="profile-desc">
+<div class="desc"> Crée des identités visuelles fortes et des supports print/digital percutants.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 22 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">AD</div></div>
+<h3>Alexandre Durand</h3>
+<div class="profile-domain">Chef de produit</div>
+<div class="profile-desc">
+<div class="desc"> Définit la stratégie produit et priorise le backlog selon les besoins marché.</div>
+
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 23 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">EJ</div></div>
+<h3>Eva Jacquet</h3>
+<div class="profile-domain">Marketing</div>
+<div class="profile-desc">
+<div class="desc"> Conçoit des stratégies d'acquisition innovantes et optimise les canaux de croissance.</div>
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+<!-- Profil 24 -->
+<div class="profile-card">
+<div class="profile-photo-container"><div class="profile-photo-placeholder">RB</div></div>
+<h3>Romain Bernard</h3>
+<div class="profile-domain">Admin Systèmes</div>
+<div class="profile-desc">
+<div class="desc"> Gère et sécurise les infrastructures IT, assure la disponibilité des services.</div>
+
+</div>
+<a href="#" class="profile-link" target="_blank">LinkedIn</a>
+</div>
+
+</div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col-md-5 mb-4 mb-md-0"><div class="brand mb-2"><span>JOB</span> BOOSTER BÉNIN</div><p style="font-size:.83rem;opacity:.7;margin-bottom:0;">Your growth enabler · Programme intensif d'employabilité et d'entrepreneuriat</p></div>
+      <div class="col-md-3 mb-4 mb-md-0"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Contact</h6><div class="contact-item"><div class="icon">📞</div>(+229) 01 69 12 20 12</div><div class="contact-item"><div class="icon">🌐</div>www.jobboosterbénin.com</div></div>
+      <div class="col-md-4"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Localisation</h6><p style="font-size:.83rem;opacity:.7;margin:0;">Centre Job Booster<br/>Calavi, Bénin</p></div>
+    </div>
+    <hr/><p class="copy">© 2026 Job Booster Bénin — Job Booster Career Accelerator. Tous droits réservés.</p>
+  </div>
+</footer>
+
+</body>
+</html>

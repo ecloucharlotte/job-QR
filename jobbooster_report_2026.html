@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+  <title>Job Booster Career Accelerator 2026 — Rapport d'Activités</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: rgb(18, 51, 119);
+      --orange: #f5821f;
+      --light: #f4f6f9;
+      --white: #ffffff;
+      --text: #333333;
+      --muted: #6c757d;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat', sans-serif; }
+
+    /* HEADER RESPONSIVE */
+    .custom-header {
+      background: rgb(245, 245, 245);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      width: 100%;
+    }
+    .custom-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .logo {
+      font-weight: 800;
+      color: #f97316;
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .logo span {
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgb(18,51,119);
+      font-weight: bold;
+      transition: color 0.3s;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+
+    }
+    .nav-links a:hover {
+      color: #f97316;
+    }
+    .contact-btn {
+      background: #f97316;
+      color: white !important;
+      padding: 8px 24px !important;
+    }
+    .contact-btn:hover {
+      background: #ea580c;
+      transform: translateY(-2px);
+    }
+
+    /* ── TOP BANNER ── */
+    .top-banner {
+      background: var(--navy);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 8px 0;
+      text-align: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      padding: 70px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: rgba(245,130,31,.08);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 3px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero .subtitle {
+      font-size: 1.05rem;
+      font-style: italic;
+      opacity: .85;
+      margin-bottom: 0;
+    }
+    .hero-divider {
+      width: 56px; height: 4px;
+      background: var(--orange);
+      border-radius: 2px;
+      margin: 22px 0;
+    }
+    .hero-meta {
+      font-size: .82rem;
+      opacity: .7;
+      margin-top: 10px;
+    }
+    .hero-meta strong { color: var(--orange); }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background: var(--navy); padding-bottom: 40px; }
+    .stat-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 22px 16px;
+      text-align: center;
+      color: var(--white);
+      transition: transform .2s, background .2s;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      background: rgba(245,130,31,.18);
+    }
+    .stat-card .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.4rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .stat-card .stat-label {
+      font-size: .78rem;
+      letter-spacing: .04em;
+      opacity: .8;
+      margin-top: 6px;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-header {
+      margin-bottom: 36px;
+    }
+    .section-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3.5rem;
+      color: var(--orange);
+      opacity: .15;
+      line-height: 1;
+      display: block;
+      margin-bottom: -10px;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.55rem;
+      color: var(--navy);
+      position: relative;
+      padding-bottom: 12px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 44px; height: 3px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+
+    /* ── SECTIONS ALT BG ── */
+    .section-light { background: var(--light); }
+
+    /* ── CARDS ── */
+    .info-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(18,51,119,.07);
+      height: 100%;
+      border-left: 4px solid var(--orange);
+    }
+    .info-card h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: .95rem;
+      margin-bottom: 10px;
+    }
+    .info-card p { font-size: .87rem; margin-bottom: 0; color: #555; }
+
+    /* ── OBJECTIVES LIST ── */
+    .obj-list { list-style: none; padding: 0; margin: 0; }
+    .obj-list li {
+      padding: 10px 0 10px 28px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      font-size: .88rem;
+    }
+    .obj-list li:last-child { border-bottom: none; }
+    .obj-list li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--orange);
+      font-size: 1rem;
+    }
+
+    /* ── TABLE ── */
+    .custom-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+    .custom-table thead tr th {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      padding: 14px 18px;
+      letter-spacing: .04em;
+    }
+    .custom-table thead tr th:first-child { border-radius: 8px 0 0 0; }
+    .custom-table thead tr th:last-child  { border-radius: 0 8px 0 0; }
+    .custom-table tbody tr td {
+      padding: 13px 18px;
+      border-bottom: 1px solid #e9ecef;
+      font-size: .87rem;
+    }
+    .custom-table tbody tr:nth-child(even) td { background: #f8f9ff; }
+    .custom-table tbody tr:hover td { background: #fff3e8; }
+
+    /* ── DAILY SCHEDULE ── */
+    .schedule-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px dashed #ddd;
+    }
+    .schedule-item:last-child { border-bottom: none; }
+    .schedule-time {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .75rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .schedule-content h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: .9rem;
+      margin-bottom: 3px;
+    }
+    .schedule-content p { font-size: .82rem; color: #666; margin: 0; }
+
+    /* ── TRACKS ── */
+    .track-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(18,51,119,.09);
+      height: 100%;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .track-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(18,51,119,.15);
+    }
+    .track-header {
+      background: var(--navy);
+      padding: 22px 20px 18px;
+      position: relative;
+    }
+    .track-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: rgba(255,255,255,.08);
+      position: absolute;
+      top: 8px; right: 14px;
+      line-height: 1;
+    }
+    .track-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      font-size: .68rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+    .track-header h5 {
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      margin: 0;
+    }
+    .track-body { padding: 20px; }
+    .track-body ul { padding-left: 18px; margin: 0; }
+    .track-body ul li { font-size: .83rem; color: #555; margin-bottom: 5px; }
+
+    /* ── TRANSVERSAL FORMATION TABLE ── */
+    .formation-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .formation-row:last-child { border-bottom: none; }
+    .formation-theme {
+      background: var(--navy);
+      color: var(--white);
+      padding: 14px 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .83rem;
+      display: flex; align-items: center;
+    }
+    .formation-content {
+      padding: 14px 18px;
+      font-size: .85rem;
+      color: #555;
+      display: flex; align-items: center;
+    }
+    .formation-row:nth-child(even) .formation-content { background: #f8f9ff; }
+
+    /* ── PROJECTS ── */
+    .project-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 26px 22px;
+      box-shadow: 0 3px 18px rgba(18,51,119,.08);
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s;
+    }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: var(--orange);
+    }
+    .project-num {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: .9rem;
+      border-radius: 50%;
+      margin-bottom: 14px;
+    }
+    .project-card h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: var(--navy);
+      font-size: .97rem;
+      margin-bottom: 8px;
+    }
+    .project-card p { font-size: .84rem; color: #666; margin: 0; }
+
+    /* ── CHALLENGES & LESSONS ── */
+    .challenge-item, .lesson-item {
+      display: flex; gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .challenge-item:last-child, .lesson-item:last-child { border-bottom: none; }
+    .ci-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .ci-icon.challenge { background: rgba(245,130,31,.12); }
+    .ci-icon.lesson    { background: rgba(18,51,119,.1); }
+    .ci-body h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: .88rem;
+      color: var(--navy); margin-bottom: 4px;
+    }
+    .ci-body p { font-size: .82rem; color: #666; margin: 0; }
+
+    /* ── CONCLUSION HIGHLIGHT ── */
+    .conclusion-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 14px;
+      padding: 40px 36px;
+    }
+    .conclusion-box h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; color: var(--orange); margin-bottom: 18px;
+    }
+    .conclusion-box ul { padding-left: 20px; }
+    .conclusion-box ul li { margin-bottom: 10px; font-size: .9rem; opacity: .9; }
+
+    /* ── PERSPECTIVES ── */
+    .perspective-pill {
+      background: var(--light);
+      border: 2px solid var(--navy);
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .8rem;
+      color: var(--navy);
+      display: inline-block;
+      margin: 5px 4px;
+    }
+
+    /* ── TALENTS GRID ── */
+    .talent-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 18px 12px 14px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(18,51,119,.07);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .talent-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(18,51,119,.14);
+    }
+    .talent-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 3px solid var(--orange);
+      background: linear-gradient(135deg, var(--navy) 0%, #2d4d7a 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--white);
+      margin: 0 auto 12px;
+      text-transform: uppercase;
+    }
+    .talent-card h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: .78rem;
+      color: var(--navy); margin-bottom: 4px;
+    }
+    .talent-card small { font-size: .7rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 40px 0 24px;
+    }
+    footer .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 1.3rem;
+    }
+    footer .brand span { color: var(--orange); }
+    footer .contact-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .85rem; opacity: .8; margin-bottom: 8px;
+    }
+    footer .contact-item .icon {
+      width: 32px; height: 32px;
+      background: rgba(245,130,31,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+    }
+    footer hr { border-color: rgba(255,255,255,.1); margin: 20px 0 14px; }
+    footer .copy { font-size: .75rem; opacity: .5; text-align: center; }
+
+    /* ── RESPONSIVE HEADER ── */
+    @media (max-width: 768px) {
+      .custom-header .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      .nav-links a {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+      }
+      .hero { padding: 50px 0 40px; }
+      .formation-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links a {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+      }
+      .contact-btn {
+        padding: 5px 16px !important;
+      }
+      .logo {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER RESPONSIVE -->
+<div class="custom-header">
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="image/ChatGPT Image Mar 26, 2026, 11_32_45 AM.png" width="100" height="100" alt="">
+    </a>
+    <div class="nav-links">
+       <a href="index.html" class="contact-btn">Accueil</a>
+      <a href="#about">Rapports</a>
+      <a href="profil.html">Profils</a>
+    
+    </div>
+  </div>
+</div>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  <div class="container">
+    <span>✨ RAPPORT D'ACTIVITÉS 2026 | JOB BOOSTER CAREER ACCELERATOR ✨</span>
+  </div>
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <div class="hero-badge">ÉDITION 2026</div>
+       <h1><marquee behavior="scroll" direction="left">Job Booster <span>Career Accelerator</span></marquee></h1>
+        <div class="hero-divider mx-auto"></div>
+        <p class="subtitle">Transformer le potentiel des jeunes diplômés en compétences immédiatement opérationnelles</p>
+        <div class="hero-meta">📅 Programme intensif | 🎯 30 participants | 🚀 5 projets innovants</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1 : PRÉSENTATION -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Présentation du Programme</h2>
+    </div>
+    <h4 class="fw-bold mb-3" style="color:var(--navy);font-family:'Montserrat',sans-serif;font-size:1.1rem;">1.1 Contexte et Justification</h4>
+    <p>Le marché de l'emploi au Bénin reste marqué par un paradoxe persistant. Malgré une dynamique de croissance économique, le taux de sous-emploi touche près de <strong>70 % de la population active</strong>. Les jeunes diplômés et les étudiants en fin de cycle se heurtent à une barrière d'accès au premier emploi, faute d'adéquation réelle entre les formations académiques et les exigences changeantes des recruteurs.</p>
+    <p>Face à ce défi structurel, Job Booster Bénin a lancé l'édition 2026 du programme <strong>Job Booster Career Accelerator (JobCar)</strong>, une initiative stratégique conçue pour transformer le potentiel des jeunes talents en une force de travail immédiatement opérationnelle et compétitive.</p>
+    <p>L'ambition de JobCar 2026 est de placer l'employabilité et l'entrepreneuriat des jeunes au cœur de sa mission. En intégrant les principes de l'<strong>Économie Sociale et Solidaire (ESS)</strong>, le programme promeut un modèle économique plus humain et inclusif, où l'innovation sert le bien-être collectif. Cette approche vise à former une nouvelle génération de leaders et d'entrepreneurs conscients de leur responsabilité sociale, capables de générer des emplois durables au sein de leurs communautés.</p>
+    <p>Le Programme JobCar 2026 s'adresse à une cible diversifiée incluant les étudiants, jeunes diplômés en quête d'insertion, mais aussi jeunes fonctionnaires désireux de renforcer leurs compétences pour plus d'efficacité dans l'administration publique ou les organisations privées.</p>
+
+    <h4 class="fw-bold mt-5 mb-3" style="color:var(--navy);font-family:'Montserrat',sans-serif;font-size:1.1rem;">1.2 Objectifs du Programme</h4>
+    <p>L'objectif général est de réduire la fracture entre la formation académique et les exigences du marché de l'emploi par un accompagnement structuré couvrant l'analyse des compétences, la formation intensive, l'idéation entrepreneuriale et l'insertion professionnelle.</p>
+    <ul class="obj-list mt-3">
+      <li>Doter les jeunes des <strong>Soft Skills</strong> (communication, gestion du temps, leadership, esprit d'équipe et adaptabilité, etc.) nécessaires pour leur employabilité ;</li>
+      <li>Doter chaque année au moins <strong>100 jeunes (dont 55 % de femmes)</strong> des compétences de pointe pour le renforcement de leur employabilité ;</li>
+      <li>Accompagner l'éclosion de projets innovants et viables à travers un concours entrepreneurial aboutissant à un <strong>« Pitch to Win »</strong> de leur projet personnel ou d'équipe ;</li>
+      <li>Initier les participants aux modèles de l'ESS ;</li>
+      <li>Faciliter l'insertion professionnelle immédiate et optimiser les performances des jeunes fonctionnaires déjà en poste ;</li>
+      <li>Créer un pont direct entre les talents formés et le monde de l'entreprise : recruteurs, investisseurs et mentors.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 2 : SÉLECTION -->
+<section class="py-5 section-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Sélection des Participants</h2>
+    </div>
+    <p>Le programme a suscité un intérêt remarquable auprès des jeunes professionnels et diplômés de <strong>Calavi, Cotonou et de ses environs</strong>. La forte mobilisation observée dès la phase de communication témoigne d'un besoin réel et d'une demande croissante pour des programmes d'insertion orientés pratique.</p>
+    <div class="table-responsive mt-4 mb-4">
+      <table class="custom-table">
+        <thead><tr><th>Étape</th><th>Indicateur</th><th>Résultat</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Candidatures reçues</strong></td><td>Inscriptions au programme</td><td><span style="color:var(--orange);font-weight:700;">100 candidats</span></td></tr>
+          <tr><td><strong>Sélection finale</strong></td><td>Participants retenus</td><td><span style="color:var(--orange);font-weight:700;">30 participants</span></td></tr>
+          <tr><td><strong>Présence régulière</strong></td><td>Présence moyenne quotidienne</td><td><span style="color:var(--orange);font-weight:700;">28 participants en moyenne par jour</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Le processus de sélection a reposé sur plusieurs critères d'évaluation combinés :</p>
+    <ul class="obj-list">
+      <li>La motivation et la clarté du projet professionnel ;</li>
+      <li>L'intérêt démontré pour l'entrepreneuriat et l'innovation ;</li>
+      <li>L'engagement à participer activement à un programme intensif en présentiel ;</li>
+      <li>La volonté de travailler en équipe sur des projets concrets et porteurs de valeur.</li>
+    </ul>
+    <p class="mt-3">Certaines absences ponctuelles observées au cours du programme ont été liées à des contraintes académiques (examens universitaires), sans remettre en cause l'engagement global des participants. Le taux de présence régulière a atteint environ <strong>95 %</strong>, ce qui est jugé très satisfaisant au regard des contraintes personnelles des bénéficiaires.</p>
+  </div>
+</section>
+
+<!-- SECTION 3 : STRUCTURE -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Structure du Programme</h2>
+    </div>
+    <h4 class="fw-bold mb-3" style="color:var(--navy);font-family:'Montserrat',sans-serif;font-size:1.1rem;">3.1 Organisation Générale</h4>
+    <p>Le programme s'est déroulé sur <strong>5 semaines intensives</strong>, combinant formations théoriques, ateliers pratiques, travail en équipe et développement de projets. L'ensemble des activités se tenait en présentiel, au <strong>Centre Job Booster à Calavi</strong>.</p>
+    <div class="row g-3 mt-2 mb-5">
+      <div class="col-6 col-md-3"><div class="info-card text-center"><div style="font-size:2rem;font-weight:900;color:var(--orange);">5</div><h5>Semaines</h5><p>Durée totale du programme</p></div></div>
+      <div class="col-6 col-md-3"><div class="info-card text-center"><div style="font-size:1.1rem;font-weight:900;color:var(--orange);">9h–15h</div><h5>Horaires</h5><p>Horaires quotidiens de formation</p></div></div>
+      <div class="col-6 col-md-3"><div class="info-card text-center"><div style="font-size:1rem;font-weight:900;color:var(--orange);">Lun – Ven</div><h5>Jours</h5><p>Jours de formation hebdomadaires</p></div></div>
+      <div class="col-6 col-md-3"><div class="info-card text-center"><div style="font-size:2rem;font-weight:900;color:var(--orange);">150h</div><h5>Volume Total</h5><p>Heures d'apprentissage intensif</p></div></div>
+    </div>
+    <h4 class="fw-bold mb-3" style="color:var(--navy);font-family:'Montserrat',sans-serif;font-size:1.1rem;">3.2 Programme Journalier Type</h4>
+    <p>Chaque journée de formation était structurée en trois temps complémentaires :</p>
+    <div class="mt-4" style="border:1px solid #e9ecef;border-radius:12px;overflow:hidden;">
+      <div class="schedule-item px-4" style="background:#f9fbff;"><div class="schedule-time">9h00 – 10h30</div><div class="schedule-content"><h6>Session Plénière</h6><p>Compétences transversales et développement professionnel pour tous les parcours</p></div></div>
+      <div class="schedule-item px-4"><div class="schedule-time">10h30 – 12h00</div><div class="schedule-content"><h6>Approfondissement par Parcours</h6><p>Exercices pratiques spécifiques à chaque track : PM, Développement Web, Marketing Digital, Data</p></div></div>
+      <div class="schedule-item px-4" style="background:#f9fbff;"><div class="schedule-time">12h00 – 13h00</div><div class="schedule-content"><h6>Pause et Networking</h6><p>Déjeuner et échanges informels entre participants et mentors</p></div></div>
+      <div class="schedule-item px-4"><div class="schedule-time">13h00 – 15h00</div><div class="schedule-content"><h6>Travail Projet</h6><p>Collaboration inter-parcours sur des projets réels (Site d'emplois interne, puis projets startup)</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : TRACKS -->
+<section class="py-5 section-light">
+  <div class="container">
+    <div class="section-header"><span class="section-number">04</span><h2 class="section-title">Parcours de Formation (Tracks)</h2></div>
+    <p class="mb-4">Les participants ont été répartis dans <strong>quatre parcours d'apprentissage spécialisés</strong>, chacun conçu pour répondre à des métiers en forte demande sur le marché du travail béninois et régional.</p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3"><div class="track-card"><div class="track-header"><div class="track-num">01</div><div class="track-tag">Track 1</div><h5>Gestion de Projets</h5></div><div class="track-body"><ul><li>Rédaction de chartes et plans de projet</li><li>Gestion des risques et des parties prenantes</li><li>Utilisation de l'IA pour la planification</li><li>Business cases et timelines</li></ul></div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="track-card"><div class="track-header"><div class="track-num">02</div><div class="track-tag">Track 2</div><h5>Développement Web</h5></div><div class="track-body"><ul><li>HTML, CSS, JavaScript</li><li>Bases du backend</li><li>Git / GitHub</li><li>Déploiement et documentation technique</li><li>IA pour le codage assisté et le débogage</li></ul></div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="track-card"><div class="track-header"><div class="track-num">03</div><div class="track-tag">Track 3</div><h5>Marketing Digital</h5></div><div class="track-body"><ul><li>Stratégie de contenu</li><li>Community management</li><li>Calendrier éditorial</li><li>KPI et analytics</li><li>IA pour la création de contenu</li></ul></div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="track-card"><div class="track-header"><div class="track-num">04</div><div class="track-tag">Track 4</div><h5>Analyse de Données</h5></div><div class="track-body"><ul><li>Python pour l'analyse de données</li><li>Nettoyage de datasets</li><li>Visualisation des données</li><li>Interprétation des tendances</li><li>IA pour accélérer l'analyse</li></ul></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 : FORMATIONS TRANSVERSALES -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header"><span class="section-number">05</span><h2 class="section-title">Formations Transversales</h2></div>
+    <p class="mb-4">En parallèle des parcours techniques, plusieurs sessions transversales ont été organisées afin de renforcer les compétences professionnelles, relationnelles et entrepreneuriales de l'ensemble des participants.</p>
+    <div style="border:1px solid #e9ecef;border-radius:12px;overflow:hidden;">
+      <div class="formation-row"><div class="formation-theme">Design Thinking</div><div class="formation-content">Identifier des problèmes réels, comprendre les besoins utilisateurs et concevoir des solutions pertinentes centrées sur l'humain.</div></div>
+      <div class="formation-row"><div class="formation-theme">Personal Branding & LinkedIn</div><div class="formation-content">Construire une image professionnelle crédible et visible sur LinkedIn pour saisir de nouvelles opportunités de carrière.</div></div>
+      <div class="formation-row"><div class="formation-theme">Logique Business et Projet</div><div class="formation-content">Transformer un projet en solution commercialisable : présenter une offre, identifier les besoins clients, structurer un prix et négocier.</div></div>
+      <div class="formation-row"><div class="formation-theme">Communication et Travail en Équipe</div><div class="formation-content">Communication professionnelle, collaboration, gestion du temps et posture professionnelle.</div></div>
+      <div class="formation-row"><div class="formation-theme">Intégration de l'IA en Entreprise</div><div class="formation-content">Comprendre et utiliser l'intelligence artificielle pour améliorer la productivité, les processus et la prise de décision.</div></div>
+      <div class="formation-row"><div class="formation-theme">Introduction à l'Entrepreneuriat</div><div class="formation-content">Créer de la valeur, mesurer l'impact d'une solution et comprendre les enjeux liés aux besoins des clients.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 : PROJETS -->
+<section class="py-5 section-light">
+  <div class="container">
+    <div class="section-header"><span class="section-number">06</span><h2 class="section-title">Phase Projets — Solutions Innovantes</h2></div>
+    <p class="mb-4">À l'issue des deux premières semaines de formation intensive, les participants ont été répartis en <strong>équipes interdisciplinaires</strong> réunissant des profils complémentaires (développeurs, chefs de projet, marketeurs, data analysts). Chaque équipe a eu pour mission de concevoir et de développer une solution concrète répondant à un problème réel identifié dans leur environnement.</p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><div class="project-card"><div class="project-num">01</div><h5>Project Pro — Outil IA pour Chefs de Projet</h5><p>Une solution basée sur l'intelligence artificielle permettant aux chefs de projet de structurer, rédiger et piloter leurs projets plus efficacement. L'outil automatise la génération de documents de projet et l'analyse des risques.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="project-card"><div class="project-num">02</div><h5>Benin Gateway — Plateforme Touristique</h5><p>Une solution numérique visant à valoriser le tourisme au Bénin et à faciliter l'accès à l'information pour les visiteurs locaux et internationaux. La plateforme agrège les sites touristiques, les hébergements et les expériences culturelles.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="project-card"><div class="project-num">03</div><h5>Digital Tailor — Gestion Numérique pour Tailleurs</h5><p>Un outil numérique permettant aux tailleurs et artisans du textile de gérer leurs commandes, leurs mesures clients et l'organisation de leur travail de manière digitale, en substituant les carnets traditionnels.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="project-card"><div class="project-num">04</div><h5>Starter Kit — 1 000 Ordinateurs pour 1 000 Diplômés</h5><p>Un projet à impact social visant à faciliter l'accès à des outils informatiques pour les jeunes diplômés béninois, en levant l'un des principaux obstacles à leur insertion dans l'économie numérique.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="project-card"><div class="project-num">05</div><h5>AlloArtisan — Trouvez un Artisan en Quelques Minutes</h5><p>Un projet digital visant à connecter rapidement les artisans béninois avec les clients, facilitant l'accès aux services locaux et soutenant le développement du tissu artisanal national.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 : ORGANISATION & LOGISTIQUE -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header"><span class="section-number">07</span><h2 class="section-title">Organisation et Logistique</h2></div>
+    <p>La mise en œuvre du programme a nécessité une coordination quotidienne rigoureuse impliquant l'équipe permanente de Job Booster, les intervenants extérieurs et les participants eux-mêmes.</p>
+    <p>Les principales composantes organisationnelles ont inclus :</p>
+    <ul class="obj-list mt-3"><li>La planification et l'organisation des sessions de formation quotidiennes ;</li><li>La coordination des intervenants experts pour les sessions transversales ;</li><li>La gestion des espaces de travail et du matériel technique ;</li><li>L'accompagnement continu des équipes projet par les mentors ;</li><li>Le suivi individuel de la progression des participants et l'ajustement des contenus en temps réel.</li></ul>
+    <p class="mt-3">Le programme a également bénéficié du soutien actif de plusieurs stagiaires et coordinateurs internes, dont la contribution a été essentielle au bon déroulement opérationnel des activités quotidiennes.</p>
+  </div>
+</section>
+
+<!-- SECTION 8 : DEMO DAY -->
+<section class="py-5" style="background:var(--navy);">
+  <div class="container">
+    <div class="section-header"><span class="section-number" style="color:rgba(245,130,31,.3);">08</span><h2 class="section-title" style="color:var(--white);">Événement Final — Pitch to Win 2026</h2></div>
+    <div class="row g-4 mb-5">
+      <div class="col-lg-7">
+        <p style="color:rgba(255,255,255,.85);">Le programme se conclut par l'organisation du <strong style="color:var(--orange);">Pitch to Win 2026 – Demo Day</strong>, événement phare qui constitue à la fois la vitrine et l'aboutissement concret du Career Accelerator. Cet événement public réunit participants, partenaires, entreprises, investisseurs et représentants institutionnels autour d'un objectif commun : valoriser le travail accompli et ouvrir des portes concrètes vers l'emploi et l'entrepreneuriat.</p>
+        <h5 class="mt-4 mb-3" style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;">Déroulement de l'événement</h5>
+        <ul class="obj-list" style="color:rgba(255,255,255,.8);"><li style="border-bottom-color:rgba(255,255,255,.1);">Présentation de quatre des cinq projets startup développés durant le programme devant un jury de professionnels ;</li><li style="border-bottom-color:rgba(255,255,255,.1);">Évaluation selon des critères de pertinence, d'innovation, de viabilité commerciale et de qualité de la présentation ;</li><li style="border-bottom-color:rgba(255,255,255,.1);">Sélection et récompense des meilleures initiatives par le jury ;</li><li style="border-bottom-color:rgba(255,255,255,.1);">Networking entre participants, recruteurs, investisseurs et partenaires de l'écosystème ;</li><li style="border-bottom-color:rgba(255,255,255,.1);">Mise en relation directe entre talents formés et opportunités professionnelles concrètes.</li></ul>
+      </div>
+      <div class="col-lg-5">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:28px 24px;">
+          <h5 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:800;margin-bottom:20px;">Les Défis</h5>
+          <div class="challenge-item" style="border-bottom-color:rgba(255,255,255,.1);"><div class="ci-icon challenge">⚡</div><div class="ci-body"><h6 style="color:var(--white);">Intensité du Rythme</h6><p style="color:rgba(255,255,255,.65);">Maintenir l'engagement sur 150 heures en présentiel représente un défi physique et mental.</p></div></div>
+          <div class="challenge-item" style="border-bottom-color:rgba(255,255,255,.1);"><div class="ci-icon challenge">🔗</div><div class="ci-body"><h6 style="color:var(--white);">Cohésion Interdisciplinaire</h6><p style="color:rgba(255,255,255,.65);">Faire travailler ensemble des profils techniques variés sur un prototype commun demande une médiation constante.</p></div></div>
+          <div class="challenge-item" style="border-bottom-color:rgba(255,255,255,.1);"><div class="ci-icon challenge">🚀</div><div class="ci-body"><h6 style="color:var(--white);">Du Concept au Prototype</h6><p style="color:rgba(255,255,255,.65);">Transformer une idée innovante en solution fonctionnelle en un temps record.</p></div></div>
+          <div class="challenge-item"><div class="ci-icon challenge">🎯</div><div class="ci-body"><h6 style="color:var(--white);">Adéquation aux Besoins Locaux</h6><p style="color:rgba(255,255,255,.65);">S'assurer que les parcours techniques restent en phase avec les attentes des entreprises locales.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <h4 class="mb-4" style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:800;">Les Leçons Apprises</h4>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-3"><div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:20px;height:100%;"><div style="font-size:1.6rem;margin-bottom:10px;">📚</div><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;">Efficacité du "Learning by Doing"</h6><p style="color:rgba(255,255,255,.7);font-size:.83rem;margin:0;">La pratique réelle accélère l'acquisition de compétences bien plus que la théorie.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:20px;height:100%;"><div style="font-size:1.6rem;margin-bottom:10px;">🌟</div><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;">Priorité aux Soft Skills</h6><p style="color:rgba(255,255,255,.7);font-size:.83rem;margin:0;">La posture professionnelle et la confiance en soi sont aussi cruciales que la maîtrise technique.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:20px;height:100%;"><div style="font-size:1.6rem;margin-bottom:10px;">🤝</div><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;">Valeur du Mentorat</h6><p style="color:rgba(255,255,255,.7);font-size:.83rem;margin:0;">Le contact direct avec des experts et entrepreneurs transforme la vision des jeunes talents.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:20px;height:100%;"><div style="font-size:1.6rem;margin-bottom:10px;">⚙️</div><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;">Agilité Pédagogique</h6><p style="color:rgba(255,255,255,.7);font-size:.83rem;margin:0;">La capacité à ajuster le programme en temps réel est la clé de la réussite.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9 : CONCLUSION -->
+<section class="py-5 section-light">
+  <div class="container">
+    <div class="section-header"><span class="section-number">09</span><h2 class="section-title">Conclusion</h2></div>
+    <p>Le <strong>Job Booster Career Accelerator 2026</strong> a démontré qu'avec un encadrement adapté, une pédagogie orientée pratique et une culture exigeante de la responsabilité, de jeunes talents peuvent, en seulement cinq semaines, acquérir des compétences professionnelles concrètes et créer des solutions innovantes répondant à des besoins réels.</p>
+    <div class="conclusion-box mt-4"><h4>En chiffres, le programme a permis de :</h4><ul><li>Former <strong>30 jeunes</strong> sur <strong>150 heures</strong> d'apprentissage intensif en présentiel ;</li><li>Déployer <strong>4 parcours techniques spécialisés</strong> couvrant le développement web, le marketing digital, la gestion de projets et l'analyse de données ;</li><li>Accompagner <strong>4 équipes interdisciplinaires</strong> dans le développement de prototypes de solutions innovantes ;</li><li>Connecter les participants à un <strong>réseau d'experts, d'entrepreneurs et d'entreprises partenaires</strong>.</li></ul></div>
+    <p class="mt-4">Au-delà des chiffres, le programme a généré une transformation visible chez les participants : renforcement de la confiance en soi, acquisition d'une posture professionnelle, développement d'un réseau actif et émergence d'une véritable culture entrepreneuriale.</p>
+    <p>Fort de ces résultats, Job Booster Bénin ambitionne de pérenniser et d'élargir le programme en 2027, en augmentant le nombre de participants, en renforçant les partenariats avec les entreprises locales et internationales, et en développant de nouveaux axes d'interventions.</p>
+    <p>Nous invitons nos partenaires actuels et futurs à s'associer à cette initiative pour contribuer à la construction d'un écosystème professionnel plus inclusif, plus innovant et plus compétitif au Bénin.</p>
+  </div>
+</section>
+
+<!-- SECTION 10 : PERSPECTIVES -->
+<section class="py-5">
+  <div class="container">
+    <div class="section-header"><span class="section-number">10</span><h2 class="section-title">Perspectives 2030</h2></div>
+    <p>Fort de la réussite de l'édition 2026, l'ambition de Job Booster Career Accelerator est de se transformer en un <strong>levier d'impact national à l'horizon 2030</strong>, avec pour objectif de former et d'intégrer <strong>1 000 jeunes talents</strong> à travers les 12 départements du Bénin.</p>
+    <p>Cette expansion repose sur une décentralisation rigoureuse via la création de <strong>hubs régionaux (Nord, Centre, Sud)</strong> et l'adoption d'un modèle d'apprentissage <strong>« phygital »</strong> alliant l'excellence du présentiel à la flexibilité du numérique. En diversifiant les parcours vers des secteurs porteurs comme l'<strong>Agrotech</strong> et la <strong>cybersécurité</strong>, et en certifiant un pool national de mentors, le programme garantira une qualité pédagogique homogène sur tout le territoire.</p>
+    <p>Cette vision 2030 ne se limite pas à la formation : elle vise à bâtir une coalition solide avec le patronat et les institutions internationales pour assurer une insertion professionnelle directe, tout en propulsant les meilleurs prototypes en véritables start-ups grâce à un mécanisme de financement dédié, faisant de chaque département un foyer d'innovation et de croissance économique.</p>
+    <div class="mt-4"><span class="perspective-pill">🎯 1 000 jeunes formés</span><span class="perspective-pill">🗺️ 12 départements</span><span class="perspective-pill">🏢 Hubs régionaux</span><span class="perspective-pill">💻 Modèle Phygital</span><span class="perspective-pill">🌱 Agrotech</span><span class="perspective-pill">🔒 Cybersécurité</span><span class="perspective-pill">🤝 Partenariats internationaux</span><span class="perspective-pill">🚀 Financement Startups</span></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-start">
+      <div class="col-md-5 mb-4 mb-md-0"><div class="brand mb-2"><span>JOB</span> BOOSTER BÉNIN</div><p style="font-size:.83rem;opacity:.7;margin-bottom:0;">Your growth enabler · Programme intensif d'employabilité et d'entrepreneuriat</p></div>
+      <div class="col-md-3 mb-4 mb-md-0"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Contact</h6><div class="contact-item"><div class="icon">📞</div>(+229) 01 69 12 20 12</div><div class="contact-item"><div class="icon">🌐</div>www.jobboosterbénin.com</div></div>
+      <div class="col-md-4"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Localisation</h6><p style="font-size:.83rem;opacity:.7;margin:0;">Centre Job Booster<br/>Calavi, Bénin</p></div>
+    </div>
+    <hr/><p class="copy">© 2026 Job Booster Bénin — Job Booster Career Accelerator. Tous droits réservés.</p>
+  </div>
+</footer>
+
+</body>
+</html>
