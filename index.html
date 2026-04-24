@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Job Booter | Bilan 1ère Cohorte</title>
 
@@ -39,8 +39,8 @@ header {
 
 
 .logo img {
-    width: 100px;  /* Avant: 80px, maintenant: 60px */
-    height: 100px;
+    width: 80px;
+    height: 80px;
 }
 nav a {
     margin: 0 12px;  /* Avant: 18px, maintenant: 12px */
@@ -256,7 +256,7 @@ nav a:hover {
 }
 
 .card.top::before {
-    content: '⭐';
+    content: '';
     margin-right: 8px;
 }
 
@@ -267,7 +267,7 @@ nav a:hover {
 }
 
 .card.bottom::before {
-    content: '🚀';
+    content: '';
     margin-right: 8px;
 }
 
@@ -279,7 +279,7 @@ nav a:hover {
 }
 
 .card.right-card::before {
-    content: '👥';
+    content: '';
     margin-right: 8px;
 }
 
@@ -497,6 +497,29 @@ nav a:hover {
     text-decoration: none;
 }
 
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+}
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--bleu-nuit);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* RESPONSIVE */
 @media (max-width: 1024px) {
     header, .hero {
@@ -530,41 +553,79 @@ nav a:hover {
 
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-        padding: 20px 24px;
+        padding: 10px 20px;
     }
-    nav a {
-        margin: 0 12px;
+    .logo img {
+        width: 54px;
+        height: 54px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    nav#main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #f5f5f5;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 16px 16px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        border-top: 2px solid var(--orange);
+        z-index: 99;
+    }
+    nav#main-nav.open {
+        display: flex;
+    }
+    nav#main-nav a {
+        margin: 4px 0;
+        padding: 12px 16px;
+        text-align: center;
+        border-radius: 8px;
+    }
+    nav#main-nav a:not(.contact-btn):hover {
+        background: rgba(18,51,119,0.06);
     }
     .hero {
-        padding: 40px 24px;
-        gap: 30px;
+        flex-direction: column;
+        min-height: auto;
+        padding: 40px 24px 60px;
+        gap: 40px;
+    }
+    .left {
+        max-width: 100%;
+        text-align: center;
     }
     .left h1 {
         font-size: 2rem;
     }
     .left p {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         margin-bottom: 20px;
     }
     .stats {
         gap: 24px;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
+    }
+    .stat-item {
+        text-align: center;
     }
     .stat-number {
         font-size: 1.8rem;
     }
+    .right {
+        width: 100%;
+        justify-content: center;
+    }
     .circle {
-        width: 280px;
-        height: 280px;
-        top: -10px;
+        display: none;
     }
     .carousel-container {
-        width: 240px;
-        height: 240px;
+        width: 260px;
+        height: 260px;
         border-width: 3px;
     }
     .profiles-grid {
@@ -594,15 +655,12 @@ nav a:hover {
 }
 
 @media (max-width: 600px) {
-    .hero {
-        gap: 20px;
-    }
     .left h1 {
         font-size: 1.6rem;
         margin-bottom: 15px;
     }
     .left p {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         margin-bottom: 15px;
     }
     .stats {
@@ -615,13 +673,9 @@ nav a:hover {
     .stat-label {
         font-size: 0.65rem;
     }
-    .circle {
-        width: 220px;
-        height: 220px;
-    }
     .carousel-container {
-        width: 190px;
-        height: 190px;
+        width: 230px;
+        height: 230px;
     }
     .profiles-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -636,48 +690,32 @@ nav a:hover {
 
 @media (max-width: 480px) {
     .hero {
-        gap: 15px;
-        padding: 30px 20px;
+        padding: 30px 20px 50px;
+        gap: 30px;
     }
     .left h1 {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
+        font-size: 1.4rem;
+        margin-bottom: 12px;
     }
     .left p {
-        font-size: 0.65rem;
-        margin-bottom: 10px;
+        font-size: 0.8rem;
+        margin-bottom: 12px;
     }
     .stats {
-        gap: 12px;
-        padding-top: 12px;
+        gap: 16px;
+        padding-top: 16px;
         margin-top: 0;
     }
     .stat-number {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
     .stat-label {
-        font-size: 0.55rem;
-    }
-    .circle {
-        width: 160px;
-        height: 160px;
+        font-size: 0.65rem;
     }
     .carousel-container {
-        width: 140px;
-        height: 140px;
+        width: 210px;
+        height: 210px;
         border-width: 2px;
-    }
-    .carousel-dots {
-        bottom: 8px;
-        padding: 3px 8px;
-        gap: 5px;
-    }
-    .dot {
-        width: 5px;
-        height: 5px;
-    }
-    .dot.active {
-        width: 12px;
     }
     .profiles-grid {
         grid-template-columns: 1fr;
@@ -802,14 +840,17 @@ footer {
 
 <body>
 
-<header style="padding: 12px 80px;">
+<header>
     <div class="logo">
-        <img src="images/booster.png" width="100" height="100" alt="Job Booter Logo">
+        <img src="images/booster.png" alt="Job Booster Logo">
     </div>
-    <nav>
-        <a href="index.html" class="contact-btn" style="padding: 6px 18px;">Accueil</a>
-        <a href="jobbooster_report_2026.html" style="margin: 0 12px;">Rapport</a>
-        <a href="profil.html" style="margin: 0 12px;">Profils</a>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+    </button>
+    <nav id="main-nav">
+        <a href="index.html" class="contact-btn">Accueil</a>
+        <a href="jobbooster_report_2026.html">Rapport</a>
+        <a href="profil.html">Profils</a>
     </nav>
 </header>
 
@@ -817,7 +858,7 @@ footer {
     <div class="left">
         <h1>Révéler le potentiel <span>des talents</span> de demain</h1>
         <p>
-            Job Booter a formé 24 jeunes diplômés pendant 2 mois. Découvrez le bilan exceptionnel de notre première cohorte : 4 projets innovants, des compétences de pointe, et des talents prêts à conquérir le marché.
+            Job Booster a formé 30 jeunes diplômés pendant 2 mois. Découvrez le bilan exceptionnel de notre première cohorte : 5 projets innovants, des compétences de pointe, et des talents prêts à conquérir le marché.
         </p>
     </div>
 
@@ -826,25 +867,25 @@ footer {
         <div class="carousel-container">
             <div class="carousel-slides" id="carouselSlides">
                 <div class="carousel-slide">
-                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.30.jpeg" alt="Formation Job Booter" onerror="this.src='https://via.placeholder.com/400x400?text=Formation'">
+                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.30.jpeg" alt="Formation Job Booster" onerror="this.src='https://via.placeholder.com/400x400?text=Formation'">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.29 (1).jpeg" alt="Atelier Job Booter" onerror="this.src='https://via.placeholder.com/400x400?text=Atelier'">
+                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.29 (1).jpeg" alt="Atelier Job Booster" onerror="this.src='https://via.placeholder.com/400x400?text=Atelier'">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.29 (2).jpeg" alt="Projet Job Booter" onerror="this.src='https://via.placeholder.com/400x400?text=Projet'">
+                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.29 (2).jpeg" alt="Projet Job Booster" onerror="this.src='https://via.placeholder.com/400x400?text=Projet'">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.29.jpeg" alt="Équipe Job Booter" onerror="this.src='https://via.placeholder.com/400x400?text=Équipe'">
+                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.29.jpeg" alt="Équipe Job Booster" onerror="this.src='https://via.placeholder.com/400x400?text=Équipe'">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.30.jpeg" alt="Équipe Job Booter" onerror="this.src='https://via.placeholder.com/400x400?text=Équipe'">
+                    <img src="images/WhatsApp Image 2026-03-26 at 10.20.30.jpeg" alt="Équipe Job Booster" onerror="this.src='https://via.placeholder.com/400x400?text=Équipe'">
                 </div>
             </div>
             <div class="carousel-dots" id="carouselDots"></div>
         </div>
-        <div class="card top">24 talents certifiés</div>
-        <div class="card bottom">4 projets innovants</div>
+        <div class="card top">30 talents certifiés</div>
+        <div class="card bottom">5 projets innovants</div>
         <div class="card right-card">100% employabilité</div>
     </div>
 </section>
@@ -853,35 +894,32 @@ footer {
     <div class="footer-container">
         <div class="footer-row">
             <div class="footer-col">
-                <div class="footer-brand">Job<span>Booter</span></div>
+                <div class="footer-brand">Job<span>Booster</span></div>
                 <p class="footer-description">L'accélérateur de carrière des jeunes diplômés · Programme intensif d'employabilité et d'entrepreneuriat</p>
             </div>
             <div class="footer-col">
                 <h6>Contact</h6>
                 <div class="contact-item">
-                    <div class="icon">📞</div>
+                    <div class="icon"></div>
                     <span>(+229) 01 69 12 20 12</span>
                 </div>
+             
                 <div class="contact-item">
-                    <div class="icon">✉️</div>
-                    <span>hello@jobbooter.com</span>
-                </div>
-                <div class="contact-item">
-                    <div class="icon">🌐</div>
-                    <span>www.jobbooter.com</span>
+                    <div class="icon"></div>
+                    <span>www.jobbooterbenin.com</span>
                 </div>
             </div>
             <div class="footer-col">
                 <h6>Localisation</h6>
                 <div class="contact-item">
-                    <div class="icon">📍</div>
+                    <div class="icon"></div>
                     <span>Centre Job Booster<br>Calavi, Bénin</span>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <hr>
-            <p class="copy">© 2025 Job Booter — Tous droits réservés. Rapport de bilan — 1ère cohorte</p>
+            <p class="copy">© 2026 Job Booster Bénin — Tous droits réservés.</p>
         </div>
     </div>
 </footer>
@@ -923,6 +961,26 @@ footer {
     carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
     carousel.addEventListener('mouseleave', () => {
         autoSlide = setInterval(nextSlide, 4000);
+    });
+
+    // Menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('main-nav');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mainNav.classList.toggle('open');
+    });
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mainNav.classList.remove('open');
+        });
+    });
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !mainNav.contains(e.target)) {
+            hamburger.classList.remove('open');
+            mainNav.classList.remove('open');
+        }
     });
 </script>
 
