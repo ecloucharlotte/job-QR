@@ -521,29 +521,18 @@
     .talent-card small { font-size: .7rem; color: var(--muted); }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: var(--white);
-      padding: 40px 0 24px;
-    }
-    footer .brand {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900; font-size: 1.3rem;
-    }
-    footer .brand span { color: var(--orange); }
-    footer .contact-item {
-      display: flex; align-items: center; gap: 10px;
-      font-size: .85rem; opacity: .8; margin-bottom: 8px;
-    }
-    footer .contact-item .icon {
-      width: 32px; height: 32px;
-      background: rgba(245,130,31,.2);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .9rem;
-    }
-    footer hr { border-color: rgba(255,255,255,.1); margin: 20px 0 14px; }
-    footer .copy { font-size: .75rem; opacity: .5; text-align: center; }
+    footer { background: var(--navy); color: #b9cfe5; padding: 48px 5% 24px; margin-top: 40px; }
+    .footer-container { max-width: 1280px; margin: 0 auto; }
+    .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 32px; }
+    .footer-col { flex: 1; min-width: 180px; }
+    .footer-brand { font-weight: 800; font-size: 1.6rem; color: var(--orange); margin-bottom: 16px; }
+    .footer-brand span { color: white; }
+    .footer-description { font-size: 0.85rem; opacity: 0.8; line-height: 1.5; max-width: 300px; }
+    .footer-col h6 { color: var(--orange); font-weight: 700; font-size: 0.9rem; margin-bottom: 18px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .contact-item { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; opacity: 0.85; margin-bottom: 12px; }
+    .contact-item .icon { width: 32px; height: 32px; background: rgba(249,115,22,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+    .footer-bottom hr { border-color: rgba(255,255,255,0.1); margin: 20px 0 16px; }
+    .copy { font-size: 0.75rem; opacity: 0.6; text-align: center; margin: 0; }
 
     /* ── RESPONSIVE HEADER ── */
     @media (max-width: 768px) {
@@ -586,6 +575,10 @@
       }
       .hero { padding: 50px 0 40px; }
       .formation-row { grid-template-columns: 1fr; }
+      .footer-row { flex-direction: column; text-align: center; }
+      .footer-col { text-align: center; }
+      .contact-item { justify-content: center; }
+      .footer-description { max-width: 100%; margin: 0 auto; }
     }
 
     @media (max-width: 480px) {
@@ -829,14 +822,28 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="row align-items-start">
-      <div class="col-md-5 mb-4 mb-md-0"><div class="brand mb-2"><span>JOB</span> BOOSTER BÉNIN</div><p style="font-size:.83rem;opacity:.7;margin-bottom:0;">Your growth enabler · Programme intensif d'employabilité et d'entrepreneuriat</p></div>
-      <div class="col-md-3 mb-4 mb-md-0"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Contact</h6><div class="contact-item"><div class="icon">📞</div>(+229) 01 69 12 20 12</div><div class="contact-item"><div class="icon">🌐</div>www.jobboosterbénin.com</div></div>
-      <div class="col-md-4"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Localisation</h6><p style="font-size:.83rem;opacity:.7;margin:0;">Centre Job Booster<br/>Calavi, Bénin</p></div>
+    <div class="footer-container">
+        <div class="footer-row">
+            <div class="footer-col">
+                <div class="footer-brand">Job<span>Booster</span></div>
+                <p class="footer-description">L'accélérateur de carrière des jeunes diplômés · Programme intensif d'employabilité et d'entrepreneuriat</p>
+            </div>
+            <div class="footer-col">
+                <h6>Contact</h6>
+                <div class="contact-item"><div class="icon">📞</div><span>(+229) 01 69 12 20 12</span></div>
+                <div class="contact-item"><div class="icon">✉️</div><span>hello@jobbooster.com</span></div>
+                <div class="contact-item"><div class="icon">🌐</div><span>www.jobbooster.com</span></div>
+            </div>
+            <div class="footer-col">
+                <h6>Localisation</h6>
+                <div class="contact-item"><div class="icon">📍</div><span>Centre Job Booster<br>Calavi, Bénin</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            <p class="copy">© 2026 Job Booster Bénin — Tous droits réservés.</p>
+        </div>
     </div>
-    <hr/><p class="copy">© 2026 Job Booster Bénin — Job Booster Career Accelerator. Tous droits réservés.</p>
-  </div>
 </footer>
 
 <script>
