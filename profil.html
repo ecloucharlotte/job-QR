@@ -129,12 +129,18 @@ border-radius:30px;
 font-size:0.7rem;
 font-weight:500;
 }
-footer {
-    background: rgb(18, 51, 119);
-    color: #b9cfe5;
-    padding: 48px 5% 24px;
-    margin-top: 40px;
-}
+footer { background: rgb(18,51,119); color: #b9cfe5; padding: 48px 5% 24px; margin-top: 40px; }
+.footer-container { max-width: 1280px; margin: 0 auto; }
+.footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 32px; }
+.footer-col { flex: 1; min-width: 180px; }
+.footer-brand { font-weight: 800; font-size: 1.6rem; color: #f97316; margin-bottom: 16px; }
+.footer-brand span { color: white; }
+.footer-description { font-size: 0.85rem; opacity: 0.8; line-height: 1.5; max-width: 300px; }
+.footer-col h6 { color: #f97316; font-weight: 700; font-size: 0.9rem; margin-bottom: 18px; letter-spacing: 0.05em; text-transform: uppercase; }
+.contact-item { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; opacity: 0.85; margin-bottom: 12px; }
+.contact-item .icon { width: 32px; height: 32px; background: rgba(249,115,22,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+.footer-bottom hr { border-color: rgba(255,255,255,0.1); margin: 20px 0 16px; }
+.copy { font-size: 0.75rem; opacity: 0.6; text-align: center; margin: 0; }
 
 /* DESCRIPTION - Toujours visible */
 .profile-desc{
@@ -186,161 +192,8 @@ transition:0.2s;
 
 /* Responsive */
 @media (max-width: 1024px) {
-    header, .hero {
-        padding: 24px 40px;
-    }
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-bottom: 80px;
-    }
-    .left {
-        max-width: 100%;
-        text-align: center;
-    }
-    .stats {
-        justify-content: center;
-    }
-    .stat-item {
-        text-align: center;
-    }
-    .right {
-        margin-top: 40px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-
-/* ── FOOTER ── */
-footer {
-    background: rgb(18, 51, 119);
-    color: #b9cfe5;
-    padding: 48px 5% 24px;
-    margin-top: 40px;
-}
-
-.footer-container {
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-.footer-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 32px;
-    margin-bottom: 32px;
-}
-
-.footer-col {
-    flex: 1;
-    min-width: 180px;
-}
-
-.footer-brand {
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    font-weight: 800;
-    font-size: 1.6rem;
-    color: #f97316;
-    margin-bottom: 16px;
-}
-
-.footer-brand span {
-    color: white;
-}
-
-.footer-description {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    line-height: 1.5;
-    max-width: 300px;
-}
-
-.footer-col h6 {
-    color: #f97316;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 18px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 10px;
-}
-
-
-.footer-links a {
-    color: #cbdbe0;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.2s;
-}
-
-.footer-links a:hover {
-    color: #f97316;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.85rem;
-    opacity: 0.85;
-    margin-bottom: 12px;
-}
-
-.contact-item .icon {
-    width: 32px;
-    height: 32px;
-    background: rgba(249,115,22,0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-}
-
-.footer-bottom hr {
-    border-color: rgba(255,255,255,0.1);
-    margin: 20px 0 16px;
-}
-
-.copy {
-    font-size: 0.75rem;
-    opacity: 0.6;
-    text-align: center;
-    margin: 0;
-}
-
-    .circle {
-        width: 380px;
-        height: 380px;
-        top: -20px;
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .carousel-container {
-        width: 320px;
-        height: 320px;
-        margin-top: 0;
-    }
-    .card.top, .card.bottom, .card.right-card {
-        display: none;
-    }
-    .profiles-grid {
-        grid-template-columns: repeat(4, 1fr);
+    header {
+        padding: 16px 40px;
     }
 }
 
@@ -381,6 +234,10 @@ footer {
     nav#main-nav a:not(.contact-btn):hover {
         background: rgba(18,51,119,0.06);
     }
+    .footer-row { flex-direction: column; text-align: center; }
+    .footer-col { text-align: center; }
+    .contact-item { justify-content: center; }
+    .footer-description { max-width: 100%; margin: 0 auto; }
     .hero {
         padding: 40px 24px 60px 24px;
     }
@@ -723,14 +580,28 @@ J’apporte des solutions durables en gestion de projets urbains.</div>
 
 
 <footer>
-  <div class="container">
-    <div class="row align-items-start">
-      <div class="col-md-5 mb-4 mb-md-0"><div class="brand mb-2"><span>JOB</span> BOOSTER BÉNIN</div><p style="font-size:.83rem;opacity:.7;margin-bottom:0;">Your growth enabler · Programme intensif d'employabilité et d'entrepreneuriat</p></div>
-      <div class="col-md-3 mb-4 mb-md-0"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Contact</h6><div class="contact-item"><div class="icon">📞</div>(+229) 01 69 12 20 12</div><div class="contact-item"><div class="icon">🌐</div>www.jobboosterbénin.com</div></div>
-      <div class="col-md-4"><h6 style="color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:700;font-size:.82rem;margin-bottom:14px;letter-spacing:.05em;text-transform:uppercase;">Localisation</h6><p style="font-size:.83rem;opacity:.7;margin:0;">Centre Job Booster<br/>Calavi, Bénin</p></div>
+    <div class="footer-container">
+        <div class="footer-row">
+            <div class="footer-col">
+                <div class="footer-brand">Job<span>Booster</span></div>
+                <p class="footer-description">L'accélérateur de carrière des jeunes diplômés · Programme intensif d'employabilité et d'entrepreneuriat</p>
+            </div>
+            <div class="footer-col">
+                <h6>Contact</h6>
+                <div class="contact-item"><div class="icon">📞</div><span>(+229) 01 69 12 20 12</span></div>
+                <div class="contact-item"><div class="icon">✉️</div><span>hello@jobbooster.com</span></div>
+                <div class="contact-item"><div class="icon">🌐</div><span>www.jobbooster.com</span></div>
+            </div>
+            <div class="footer-col">
+                <h6>Localisation</h6>
+                <div class="contact-item"><div class="icon">📍</div><span>Centre Job Booster<br>Calavi, Bénin</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            <p class="copy">© 2026 Job Booster Bénin — Tous droits réservés.</p>
+        </div>
     </div>
-    <hr/><p class="copy">© 2026 Job Booster Bénin — Job Booster Career Accelerator. Tous droits réservés.</p>
-  </div>
 </footer>
 
 <script>
